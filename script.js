@@ -1,5 +1,3 @@
-// script.js — NVBL Modern (Squarespace-style) + image fix + lightbox + smooth scroll
-
 (function () {
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -21,16 +19,18 @@
   const lbImg = $("#lbImg");
   const lbClose = $("#lbClose");
 
-  // Clickable image containers
-  const clickable = [
-    ...$$(".g"),
-    ...$$(".photo"),
-  ];
+  // Clickable images
+  const clickable = $$(".g");
 
-  // 1) Year
+  // Booking
+  const form = $("#bookingForm");
+  const saveDraftBtn = $("#saveDraftBtn");
+  const clearDraftBtn = $("#clearDraftBtn");
+
+  // Year
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // 2) Toast
+  // Toast
   let toastTimer = null;
   function showToast(message) {
     if (!toast) return;
@@ -40,7 +40,7 @@
     toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
   }
 
-  // 3) Nav shadow
+  // Nav shadow
   function handleScroll() {
     if (!nav) return;
     if (window.scrollY > 6) nav.classList.add("scrolled");
@@ -49,7 +49,7 @@
   window.addEventListener("scroll", handleScroll, { passive: true });
   handleScroll();
 
-  // 4) Smooth scroll
+  // Smooth scroll
   function smoothScrollTo(hash) {
     const el = $(hash);
     if (!el) return;
@@ -65,15 +65,16 @@
     });
   });
 
-  // 5) Active section highlighting
+  // Active link highlight
   if ("IntersectionObserver" in window && sections.length) {
     const obs = new IntersectionObserver((entries) => {
       const visible = entries
         .filter(e => e.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
 
+      if (!visible) return;
       const id = "#" + visible.target.id;
+
       navLinks.forEach(a => {
         a.classList.toggle("active", a.getAttribute("href") === id);
       });
@@ -82,7 +83,7 @@
     sections.forEach(sec => obs.observe(sec));
   }
 
-  // 6) Lightbox open/close
+  // Lightbox
   function openLightbox(src) {
     if (!lightbox || !lbImg) return;
     lbImg.src = src;
@@ -108,17 +109,12 @@
   clickable.forEach(el => {
     el.setAttribute("tabindex", "0");
     el.setAttribute("role", "button");
-
     el.addEventListener("click", () => {
-      // Priority: data-full
       const full = el.getAttribute("data-full");
       if (full) return openLightbox(full);
-
-      // Otherwise open the first image inside it
       const img = el.querySelector("img");
       if (img?.src) openLightbox(img.src);
     });
-
     el.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -127,7 +123,7 @@
     });
   });
 
-  // 7) Copy helpers
+  // Copy helpers
   const addressText =
     (addressEl?.innerText || "3864 N Mississippi Ave, Portland, OR 97227")
       .replace(/\s+/g, " ")
@@ -149,42 +145,113 @@
       showToast(`${label} copied`);
     }
   }
-
   if (copyAddressBtn) copyAddressBtn.addEventListener("click", () => copyToClipboard(addressText, "Address"));
   if (copyPhoneBtn) copyPhoneBtn.addEventListener("click", () => copyToClipboard(phoneText, "Phone"));
 
-  // 8) FIX IMAGES: if any path is wrong, swap to a nice placeholder automatically
-  // This prevents "broken image icons" from ruining the layout.
-  const placeholderSVG = (label = "NVBL") => {
-    const bg = encodeURIComponent(`#f6f7f7`);
-    const stroke = encodeURIComponent(`rgba(15,18,20,.14)`);
-    const text = encodeURIComponent(`#5b6470`);
-    const accent = encodeURIComponent(`#1f8f5f`);
-    const svg =
-      `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
-        <defs>
-          <linearGradient id="g" x1="0" x2="1">
-            <stop offset="0" stop-color="${bg}"/>
-            <stop offset="1" stop-color="#ffffff"/>
-          </linearGradient>
-        </defs>
-        <rect width="1200" height="800" fill="url(#g)"/>
-        <rect x="60" y="60" width="1080" height="680" rx="48" fill="#ffffff" stroke="${stroke}" stroke-width="4"/>
-        <circle cx="140" cy="140" r="18" fill="${accent}"/>
-        <text x="190" y="155" font-family="Inter, Arial" font-size="34" fill="${text}">Image not found</text>
-        <text x="190" y="215" font-family="Fraunces, Georgia" font-size="54" fill="#0f1214">${label}</text>
-        <text x="190" y="275" font-family="Inter, Arial" font-size="28" fill="${text}">Check your /images filenames & paths</text>
-      </svg>`;
-    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-  };
+  // Booking Draft (localStorage)
+  const DRAFT_KEY = "nvbl_booking_draft_v1";
 
-  const imgs = $$("img");
-  imgs.forEach(img => {
-    img.addEventListener("error", () => {
-      // Swap broken images to a clean placeholder
-      img.src = placeholderSVG("New Vintage Beauty Lounge");
-      img.alt = "Placeholder image (original file missing)";
-      img.style.objectFit = "cover";
-    }, { once: true });
-  });
+  function getFormData() {
+    const data = {
+      name: $("#name")?.value?.trim() || "",
+      phone: $("#phone")?.value?.trim() || "",
+      email: $("#email")?.value?.trim() || "",
+      service: $("#service")?.value || "",
+      date: $("#date")?.value || "",
+      time: $("#time")?.value || "",
+      notes: $("#notes")?.value?.trim() || ""
+    };
+    return data;
+  }
+
+  function setFormData(data) {
+    if (!data) return;
+    if ($("#name")) $("#name").value = data.name || "";
+    if ($("#phone")) $("#phone").value = data.phone || "";
+    if ($("#email")) $("#email").value = data.email || "";
+    if ($("#service")) $("#service").value = data.service || "";
+    if ($("#date")) $("#date").value = data.date || "";
+    if ($("#time")) $("#time").value = data.time || "";
+    if ($("#notes")) $("#notes").value = data.notes || "";
+  }
+
+  function saveDraft() {
+    const data = getFormData();
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+    showToast("Draft saved");
+  }
+
+  function clearDraft() {
+    localStorage.removeItem(DRAFT_KEY);
+    setFormData({ name:"", phone:"", email:"", service:"", date:"", time:"", notes:"" });
+    showToast("Draft cleared");
+  }
+
+  // Load existing draft
+  try {
+    const saved = localStorage.getItem(DRAFT_KEY);
+    if (saved) setFormData(JSON.parse(saved));
+  } catch {}
+
+  if (saveDraftBtn) saveDraftBtn.addEventListener("click", saveDraft);
+  if (clearDraftBtn) clearDraftBtn.addEventListener("click", clearDraft);
+
+  // Booking submit -> opens email with prefilled request
+  // NOTE: Replace BOOKING_EMAIL if you want requests sent to a specific inbox.
+  const BOOKING_EMAIL = ""; // e.g. "appointments@nvbl.co" (leave blank to just save + show message)
+
+  function buildMessage(d) {
+    const preferred = [d.date || "—", d.time || "—"].join(" @ ");
+    return (
+`Booking Request — New Vintage Beauty Lounge
+
+Name: ${d.name}
+Phone: ${d.phone}
+Email: ${d.email}
+Service: ${d.service}
+Preferred: ${preferred}
+
+Notes:
+${d.notes || "—"}
+
+Location:
+3864 N Mississippi Ave, Portland, OR 97227
+Phone: (503) 830-2682
+`);
+  }
+
+  function mailtoLink(to, subject, body) {
+    const s = encodeURIComponent(subject);
+    const b = encodeURIComponent(body);
+    return `mailto:${to}?subject=${s}&body=${b}`;
+  }
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const d = getFormData();
+      if (!d.name || !d.phone || !d.email || !d.service) {
+        showToast("Please complete required fields");
+        return;
+      }
+
+      saveDraft();
+
+      const subject = `Appointment Request — ${d.name} (${d.service})`;
+      const body = buildMessage(d);
+
+      if (BOOKING_EMAIL) {
+        window.location.href = mailtoLink(BOOKING_EMAIL, subject, body);
+        showToast("Opening your email app…");
+      } else {
+        // If you don’t have a booking email yet, still give the user a clean result
+        showToast("Request prepared. Add BOOKING_EMAIL in script.js to enable 1-click email.");
+        // Optional: copy message to clipboard for manual pasting
+        navigator.clipboard?.writeText(body).then(() => {
+          showToast("Request copied to clipboard");
+        }).catch(() => {});
+      }
+    });
+  }
 })();
