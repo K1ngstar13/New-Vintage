@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>New Vintage Beauty Lounge | Portland Hair Salon</title>
-  <meta name="description" content="New Vintage Beauty Lounge (NVBL) — a bright, modern salon with vintage charm in Portland. Hours, services, reviews, photos, and directions." />
+  <meta name="description" content="New Vintage Beauty Lounge (NVBL) — modern salon experience with vintage charm. Hours, services, reviews, photos, and directions." />
 
-  <!-- Clean Squarespace-ish typography -->
+  <!-- Squarespace-ish pairing: modern sans + vintage serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,13 +15,12 @@
     :root{
       --bg:#ffffff;
       --text:#0f1214;
-      --muted:#5c6570;
+      --muted:#5b6470;
       --line:rgba(15,18,20,.10);
-
       --soft:#f6f7f7;
       --soft2:#fbfbfb;
 
-      --accent:#1f8f5f;     /* succulent green */
+      --accent:#1f8f5f;
       --accent2:#2bbf7d;
 
       --shadow: 0 18px 55px rgba(15,18,20,.10);
@@ -40,498 +39,303 @@
       margin:0;
       font-family:var(--sans);
       color:var(--text);
-      background: var(--bg);
+      background:var(--bg);
       line-height:1.6;
     }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .section{padding:64px 0}
 
-    /* Layout */
-    .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px 90px;}
-    .container{max-width:var(--max); margin:0 auto; padding: 0 20px;}
-
-    /* Top nav */
+    /* NAV */
     .nav{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,.86);
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.86);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      border-bottom:1px solid var(--line);
       transition: box-shadow .2s ease;
     }
-    .nav.scrolled{box-shadow: 0 14px 40px rgba(15,18,20,.08);}
+    .nav.scrolled{box-shadow: 0 14px 40px rgba(15,18,20,.08)}
     .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 14px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 260px;
+      display:flex; align-items:center; gap:12px; min-width:260px;
     }
     .mark{
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
+      width:40px;height:40px;border-radius:14px;
       background:
         radial-gradient(16px 16px at 30% 30%, rgba(43,191,125,.95), transparent 60%),
         radial-gradient(18px 18px at 75% 75%, rgba(31,143,95,.85), transparent 62%),
-        linear-gradient(135deg, rgba(15,18,20,.08), rgba(15,18,20,.02));
-      border: 1px solid rgba(15,18,20,.10);
+        linear-gradient(135deg, rgba(15,18,20,.10), rgba(15,18,20,.03));
+      border:1px solid rgba(15,18,20,.12);
     }
-    .brand-title{
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brand-title b{
-      font-family:var(--serif);
-      font-weight:650;
-      font-size: 15px;
-      letter-spacing:.2px;
-    }
-    .brand-title span{
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
+    .brand-title{display:flex;flex-direction:column;line-height:1.1}
+    .brand-title b{font-family:var(--serif);font-weight:650;font-size:15px;letter-spacing:.2px}
+    .brand-title span{font-size:12px;color:var(--muted);margin-top:3px}
 
-    .nav-links{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .links a{
+      font-size:13px;color:var(--muted);
+      padding:9px 12px;border-radius:999px;border:1px solid transparent;
+      transition: background .15s ease,border-color .15s ease,color .15s ease;
     }
-    .nav-links a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: background .15s ease, border-color .15s ease, color .15s ease;
-    }
-    .nav-links a:hover{
-      background: rgba(31,143,95,.07);
-      border-color: rgba(31,143,95,.18);
-      color: var(--text);
-    }
-    .nav-links a.active{
-      background: rgba(31,143,95,.10);
-      border-color: rgba(31,143,95,.22);
-      color: var(--text);
-    }
+    .links a:hover{background:rgba(31,143,95,.07);border-color:rgba(31,143,95,.18);color:var(--text)}
+    .links a.active{background:rgba(31,143,95,.10);border-color:rgba(31,143,95,.22);color:var(--text)}
 
-    .cta{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-
+    .cta{display:flex;gap:10px;align-items:center}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(15,18,20,.12);
-      background: rgba(255,255,255,.92);
-      font-weight: 650;
-      font-size: 13px;
-      color: var(--text);
-      cursor:pointer;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid rgba(15,18,20,.12);
+      background:rgba(255,255,255,.92);
+      font-weight:650;font-size:13px;cursor:pointer;white-space:nowrap;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-      white-space:nowrap;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: var(--shadow2);
-      background: #fff;
-    }
+    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow2);background:#fff}
     .btn.primary{
-      border-color: rgba(31,143,95,.25);
-      background: linear-gradient(135deg, rgba(31,143,95,.14), rgba(43,191,125,.10));
+      border-color:rgba(31,143,95,.25);
+      background:linear-gradient(135deg, rgba(31,143,95,.14), rgba(43,191,125,.10));
     }
-    .btn.ghost{
-      background: transparent;
-      border-color: rgba(15,18,20,.14);
-      color: var(--muted);
-    }
+    .btn.ghost{background:transparent;border-color:rgba(15,18,20,.14);color:var(--muted)}
 
-    /* Hero (full-bleed) */
+    /* HERO (Squarespace-like: clean split + big photo) */
     .hero{
-      margin: 0 -20px; /* bleed */
-      padding: 34px 20px 0;
       background:
-        radial-gradient(1000px 550px at 15% 0%, rgba(43,191,125,.10), transparent 65%),
-        radial-gradient(900px 500px at 90% 0%, rgba(15,18,20,.06), transparent 60%),
-        linear-gradient(180deg, var(--soft2), #ffffff);
-      border-bottom: 1px solid rgba(15,18,20,.06);
+        radial-gradient(1100px 560px at 15% 0%, rgba(43,191,125,.10), transparent 65%),
+        linear-gradient(180deg, var(--soft2), #fff);
+      border-bottom:1px solid rgba(15,18,20,.06);
+      padding: 36px 0 28px;
     }
-    .hero-inner{
-      max-width: var(--max);
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      padding-bottom: 28px;
+    .hero-grid{
+      display:grid; grid-template-columns: 1.05fr .95fr; gap:18px; align-items:stretch;
     }
-
-    .hero-copy{
-      background: #fff;
-      border: 1px solid rgba(15,18,20,.08);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 34px 28px;
-      align-self: start;
+    .hero-card{
+      background:#fff;border:1px solid rgba(15,18,20,.08);
+      border-radius:22px;box-shadow:var(--shadow);
+      padding:34px 28px; align-self:start;
     }
     .kicker{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .2px;
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:12px;color:var(--muted);letter-spacing:.2px;
     }
     .pill{
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(15,18,20,.10);
-      background: rgba(15,18,20,.03);
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(15,18,20,.10);
+      background:rgba(15,18,20,.03);
     }
-    .pill.green{
-      border-color: rgba(31,143,95,.22);
-      background: rgba(31,143,95,.08);
-      color: #0b2a1c;
-    }
+    .pill.green{border-color:rgba(31,143,95,.22);background:rgba(31,143,95,.08);color:#0b2a1c}
 
     h1{
-      margin: 14px 0 10px;
-      font-family: var(--serif);
-      font-weight: 650;
-      font-size: 46px;
-      line-height: 1.08;
-      letter-spacing: -0.6px;
+      margin:14px 0 10px;
+      font-family:var(--serif);
+      font-weight:650;
+      font-size:48px; line-height:1.06;
+      letter-spacing:-0.7px;
     }
-    .sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 15.5px;
-      max-width: 64ch;
-    }
-    .hero-actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 8px;
-    }
+    .sub{margin:0 0 18px;color:var(--muted);font-size:15.5px;max-width:64ch}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 
     .facts{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 22px;
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;margin-top:22px;
     }
     .fact{
-      border: 1px solid rgba(15,18,20,.08);
-      border-radius: 16px;
-      padding: 12px 12px 10px;
-      background: var(--soft);
+      border:1px solid rgba(15,18,20,.08);
+      border-radius:16px;padding:12px 12px 10px;background:var(--soft);
     }
-    .fact b{display:block; font-size: 13.5px;}
-    .fact span{display:block; color: var(--muted); font-size: 12px; margin-top: 4px;}
+    .fact b{display:block;font-size:13.5px}
+    .fact span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
 
-    /* Hero media: mosaic */
-    .hero-mosaic{
-      background: transparent;
-      border-radius: 22px;
-      overflow:hidden;
+    /* Hero Photo Stack (real images, reliable) */
+    .photo-stack{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 10px;
-      align-self: stretch;
+      grid-template-columns: 1fr;
+      gap:10px;
     }
-    .tile{
-      position:relative;
-      border-radius: 18px;
+    .photo{
+      border-radius:22px;
       overflow:hidden;
-      border: 1px solid rgba(15,18,20,.10);
-      box-shadow: var(--shadow2);
-      background: #ddd center/cover no-repeat;
-      min-height: 220px;
-      cursor:pointer;
-      transition: transform .16s ease, box-shadow .16s ease;
+      border:1px solid rgba(15,18,20,.10);
+      box-shadow:var(--shadow2);
+      background: #e9ecef;
+      position:relative;
     }
-    .tile:hover{transform: translateY(-2px); box-shadow: var(--shadow);}
-    .tile:after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34));
-      opacity:.65;
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
-    .tile span{
-      position:absolute; left:12px; bottom:12px; z-index:2;
-      font-size: 12.5px;
-      font-weight: 650;
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.55);
-      background: rgba(0,0,0,.20);
+    .photo.big{aspect-ratio: 4 / 3;}
+    .photo-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .photo.small{aspect-ratio: 4 / 3;}
+    .label{
+      position:absolute; left:12px; bottom:12px;
+      color:#fff; font-size:12.5px; font-weight:650;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(0,0,0,.22);
       backdrop-filter: blur(8px);
     }
-    .t1{grid-column: span 7; min-height: 320px; background-image: url("images/lobby.jpg");}
-    .t2{grid-column: span 5; min-height: 320px; background-image: url("images/products-wall.jpg");}
-    .t3{grid-column: span 6; min-height: 230px; background-image: url("images/salon-floor.jpg");}
-    .t4{grid-column: span 6; min-height: 230px; background-image: url("images/hair-color.jpg");}
 
-    /* Sections */
-    section{padding-top: 54px;}
+    /* HEADINGS */
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap: 14px;
-      margin-bottom: 14px;
+      display:flex;justify-content:space-between;align-items:flex-end;gap:14px;
+      margin-bottom:14px;
     }
     .section-head h2{
-      margin:0;
-      font-family: var(--serif);
-      font-size: 28px;
-      letter-spacing: -0.2px;
+      margin:0;font-family:var(--serif);
+      font-size:30px;letter-spacing:-0.2px;
     }
-    .section-head p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .section-head p{margin:0;color:var(--muted);font-size:14px}
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, minmax(0,1fr));
-      gap: 14px;
-    }
+    /* Cards + grids */
+    .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
     .card{
-      background: #fff;
-      border: 1px solid rgba(15,18,20,.10);
-      border-radius: 18px;
-      box-shadow: var(--shadow2);
-      padding: 18px;
+      background:#fff;border:1px solid rgba(15,18,20,.10);
+      border-radius:18px;box-shadow:var(--shadow2);
+      padding:18px;
     }
 
     /* Services */
     .service{grid-column: span 4;}
     .icon{
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
-      display:grid;
-      place-items:center;
-      background: rgba(31,143,95,.10);
-      border: 1px solid rgba(31,143,95,.18);
-      color: #0b2a1c;
-      font-weight: 900;
+      width:44px;height:44px;border-radius:16px;
+      display:grid;place-items:center;
+      background:rgba(31,143,95,.10);
+      border:1px solid rgba(31,143,95,.18);
+      color:#0b2a1c;font-weight:900;
     }
-    .service h3{
-      margin: 12px 0 8px;
-      font-size: 15px;
-      letter-spacing: .1px;
-    }
-    .service p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .service h3{margin:12px 0 8px;font-size:15px}
+    .service p{margin:0;color:var(--muted);font-size:14px}
 
-    /* Work / feature image + copy */
-    .feature{
-      grid-column: span 12;
-      padding: 0;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      background: #fff;
+    /* Gallery (Squarespace-like mosaic) */
+    .gallery{grid-column: span 12; padding:0; overflow:hidden}
+    .gallery-grid{
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap:10px; padding:16px; background:var(--soft);
     }
-    .feature-media{
-      min-height: 420px;
-      background: url("images/model.jpg") center/cover no-repeat;
-      position:relative;
+    .g{
+      border-radius:18px; overflow:hidden; position:relative;
+      border:1px solid rgba(15,18,20,.10);
+      background:#e9ecef;
+      cursor:pointer;
+      box-shadow: var(--shadow2);
+      transition: transform .16s ease, box-shadow .16s ease;
     }
-    .feature-media:after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(0,0,0,.05), rgba(0,0,0,.28));
+    .g:hover{transform:translateY(-2px); box-shadow: var(--shadow);}
+    .g img{width:100%;height:100%;object-fit:cover}
+    .g span{
+      position:absolute;left:12px;bottom:12px;
+      color:#fff;font-size:12.5px;font-weight:650;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(0,0,0,.22);
+      backdrop-filter: blur(8px);
     }
-    .feature-copy{
-      padding: 26px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap: 12px;
-    }
-    .feature-copy h3{
-      margin:0;
-      font-family: var(--serif);
-      font-size: 26px;
-      letter-spacing: -0.2px;
-    }
-    .feature-copy p{margin:0; color: var(--muted); font-size: 14.5px;}
-    .feature-points{
-      margin-top: 8px;
-      display:grid;
-      gap: 10px;
-    }
-    .point{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      padding: 12px;
-      border: 1px solid rgba(15,18,20,.10);
-      border-radius: 14px;
-      background: var(--soft);
-    }
-    .dot{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: var(--accent);
-      margin-top: 6px;
-      flex: 0 0 auto;
-    }
+    .g1{grid-column: span 7; aspect-ratio: 4/3;}
+    .g2{grid-column: span 5; aspect-ratio: 4/3;}
+    .g3{grid-column: span 5; aspect-ratio: 4/3;}
+    .g4{grid-column: span 7; aspect-ratio: 4/3;}
+    .g5{grid-column: span 12; aspect-ratio: 16/7;}
 
     /* Reviews */
     .review{grid-column: span 4;}
-    .review .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap: 10px;
-    }
-    .review b{font-size: 13.5px}
-    .review p{margin: 10px 0 0; color: var(--muted); font-size: 14px;}
+    .review .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+    .review b{font-size:13.5px}
+    .review p{margin:10px 0 0;color:var(--muted);font-size:14px}
     .source{
-      font-size: 12px;
-      color: var(--muted);
-      padding: 5px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(15,18,20,.10);
-      background: rgba(15,18,20,.03);
+      font-size:12px;color:var(--muted);
+      padding:5px 8px;border-radius:999px;
+      border:1px solid rgba(15,18,20,.10);
+      background:rgba(15,18,20,.03);
       white-space:nowrap;
     }
 
-    /* Hours + Contact */
+    /* Hours + contact */
     .hours{grid-column: span 5;}
     .contact{grid-column: span 7;}
     table{
       width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      overflow:hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(15,18,20,.10);
-      background: #fff;
+      border-collapse:separate;border-spacing:0;
+      border-radius:14px;overflow:hidden;
+      border:1px solid rgba(15,18,20,.10);
+      background:#fff;
     }
     td{
-      padding: 11px 12px;
-      border-bottom: 1px solid rgba(15,18,20,.08);
-      font-size: 14px;
-      color: var(--muted);
+      padding:11px 12px;
+      border-bottom:1px solid rgba(15,18,20,.08);
+      font-size:14px;color:var(--muted);
     }
     tr:last-child td{border-bottom:none}
-    td:first-child{color: var(--text); font-weight: 700;}
+    td:first-child{color:var(--text);font-weight:700}
 
     .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;
     }
     .contact-box{
-      border: 1px solid rgba(15,18,20,.10);
-      border-radius: 16px;
-      background: var(--soft);
-      padding: 14px;
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
-      min-height: 106px;
+      border:1px solid rgba(15,18,20,.10);
+      border-radius:16px;background:var(--soft);
+      padding:14px;display:flex;flex-direction:column;gap:6px;min-height:110px;
     }
-    .contact-box .label{color: var(--muted); font-size: 12px;}
-    .contact-box .value{font-weight: 800;}
-    .contact-box .value a:hover{color: var(--accent);}
-
+    .contact-box .label2{color:var(--muted);font-size:12px}
+    .contact-box .value{font-weight:800}
+    .contact-box .value a:hover{color:var(--accent)}
     .map{
-      margin-top: 12px;
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(15,18,20,.10);
-      height: 300px;
-      background: #fff;
+      margin-top:12px;border-radius:16px;overflow:hidden;
+      border:1px solid rgba(15,18,20,.10);
+      height:300px;background:#fff;
     }
-    iframe{width:100%; height:100%; border:0;}
+    iframe{width:100%;height:100%;border:0}
 
     /* Footer */
     footer{
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(15,18,20,.10);
-      color: var(--muted);
-      display:flex;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-      font-size: 13px;
+      margin-top:40px;padding-top:18px;border-top:1px solid rgba(15,18,20,.10);
+      color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      font-size:13px;
     }
 
     /* Lightbox */
     .lightbox{
       position:fixed; inset:0; z-index:999;
       background: rgba(0,0,0,.75);
-      display:none;
-      place-items:center;
-      padding: 18px;
+      display:none; place-items:center; padding:18px;
     }
     .lightbox.open{display:grid}
     .lightbox-inner{
-      max-width: min(980px, 96vw);
-      max-height: min(82vh, 740px);
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.18);
+      max-width:min(980px,96vw);
+      max-height:min(82vh,740px);
+      border-radius:16px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
       background:#000;
       box-shadow: 0 26px 90px rgba(0,0,0,.50);
       position:relative;
     }
-    .lightbox-inner img{width:100%; height:100%; object-fit:contain; display:block;}
+    .lightbox-inner img{width:100%;height:100%;object-fit:contain;display:block}
     .lightbox-close{
       position:absolute; right:12px; top:12px;
       border:1px solid rgba(255,255,255,.22);
       background: rgba(0,0,0,.35);
-      color:#fff;
-      border-radius: 12px;
-      padding: 10px 12px;
-      cursor:pointer;
-      font-weight: 800;
+      color:#fff;border-radius:12px;
+      padding:10px 12px; cursor:pointer; font-weight:800;
     }
 
     /* Toast */
     .toast{
-      position:fixed;
-      left:50%;
-      bottom:22px;
-      transform: translateX(-50%);
+      position:fixed; left:50%; bottom:22px; transform:translateX(-50%);
       background: rgba(255,255,255,.94);
       border: 1px solid rgba(15,18,20,.14);
       color: var(--text);
       padding: 10px 12px;
       border-radius: 12px;
       box-shadow: 0 16px 50px rgba(15,18,20,.12);
-      display:none;
-      z-index: 1000;
+      display:none; z-index: 1000;
       font-size: 13px;
       max-width: min(520px, 92vw);
       text-align:center;
@@ -540,23 +344,22 @@
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-inner{grid-template-columns: 1fr;}
-      .facts{grid-template-columns: 1fr;}
-      .service{grid-column: span 6;}
-      .review{grid-column: span 6;}
-      .hours,.contact{grid-column: span 12;}
-      .feature{grid-template-columns: 1fr;}
-      .feature-media{min-height: 340px;}
-      .t1,.t2{min-height: 280px;}
+      .hero-grid{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}
+      .photo-row{grid-template-columns:1fr}
+      .service{grid-column:span 6}
+      .review{grid-column:span 6}
+      .hours,.contact{grid-column:span 12}
+      .g1,.g2,.g3,.g4{grid-column: span 12;}
     }
     @media (max-width: 560px){
-      h1{font-size: 38px}
-      .service{grid-column: span 12;}
-      .review{grid-column: span 12;}
-      .contact-grid{grid-template-columns: 1fr;}
-      .nav-links{display:none}
+      h1{font-size:38px}
+      .links{display:none}
       .brand{min-width:auto}
-      .t1,.t2,.t3,.t4{grid-column: span 12;}
+      .service{grid-column:span 12}
+      .review{grid-column:span 12}
+      .contact-grid{grid-template-columns:1fr}
+      .g5{aspect-ratio: 16/10;}
     }
   </style>
 
@@ -589,86 +392,92 @@
 <body>
   <!-- NAV -->
   <div class="nav" id="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <div class="mark" aria-hidden="true"></div>
-        <div class="brand-title">
-          <b>New Vintage Beauty Lounge</b>
-          <span>Modern vintage • plants • clean finishes</span>
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <b>New Vintage Beauty Lounge</b>
+            <span>Modern finish • vintage charm • green vibe</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#hours">Hours</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn ghost" href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
+          <a class="btn primary" href="tel:+15038302682">Call (503) 830-2682</a>
         </div>
-      </a>
-
-      <div class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#photos">Photos</a>
-        <a href="#work">Work</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#hours">Hours</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="cta">
-        <a class="btn ghost" href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
-        <a class="btn primary" href="tel:+15038302682">Call (503) 830-2682</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO (FULL BLEED FEEL) -->
-  <div class="hero" id="top">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="kicker">
-          <span class="pill green">4.6 ★ rating</span>
-          <span class="pill">Located in: Tupelo Alley</span>
-          <span class="pill">3864 N Mississippi Ave</span>
-        </div>
-
-        <h1>Bright, modern hair—wrapped in vintage charm.</h1>
-        <p class="sub">
-          New Vintage Beauty Lounge (NVBL) delivers clean, high-end cuts and dimensional color in a calm,
-          plant-fresh atmosphere. Shop products & services at <b>nvbl.co</b>.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">Get Directions</a>
-          <a class="btn" href="tel:+15038302682">Book by Phone</a>
-          <button class="btn ghost" id="copyAddressBtn" type="button">Copy Address</button>
-        </div>
-
-        <div class="facts" aria-label="Key facts">
-          <div class="fact">
-            <b>Phone</b>
-            <span>(503) 830-2682</span>
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker">
+            <span class="pill green">4.6 ★ rating</span>
+            <span class="pill">Located in: Tupelo Alley</span>
+            <span class="pill">3864 N Mississippi Ave</span>
           </div>
-          <div class="fact">
-            <b>Address</b>
-            <span>3864 N Mississippi Ave</span>
+
+          <h1>Modern hair, vintage soul.</h1>
+          <p class="sub">
+            NVBL is a bright, clean salon experience with vintage character and a plant-forward atmosphere.
+            Cuts, color, and care that look great beyond the chair.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#contact">Get Directions</a>
+            <a class="btn" href="tel:+15038302682">Book by Phone</a>
+            <button class="btn ghost" id="copyAddressBtn" type="button">Copy Address</button>
           </div>
-          <div class="fact">
-            <b>Products</b>
-            <span>nvbl.co</span>
+
+          <div class="facts" aria-label="Key facts">
+            <div class="fact"><b>Phone</b><span>(503) 830-2682</span></div>
+            <div class="fact"><b>Address</b><span>3864 N Mississippi Ave</span></div>
+            <div class="fact"><b>Products</b><span>nvbl.co</span></div>
           </div>
         </div>
-      </div>
 
-      <!-- Photo mosaic -->
-      <div class="hero-mosaic" id="photos" aria-label="Photo mosaic">
-        <div class="tile t1" data-full="images/lobby.jpg"><span>Lobby + Plant Wall</span></div>
-        <div class="tile t2" data-full="images/products-wall.jpg"><span>Product Wall</span></div>
-        <div class="tile t3" data-full="images/salon-floor.jpg"><span>Salon Floor</span></div>
-        <div class="tile t4" data-full="images/hair-color.jpg"><span>Color Work</span></div>
+        <!-- Photos: real <img> paths + JS fallback if missing -->
+        <div class="photo-stack" aria-label="Featured photos">
+          <figure class="photo big" data-full="images/lobby.jpg">
+            <img src="images/lobby.jpg" alt="Lobby with plant wall and seating" loading="lazy" />
+            <figcaption class="label">Lobby + Plant Wall</figcaption>
+          </figure>
+
+          <div class="photo-row">
+            <figure class="photo small" data-full="images/products-wall.jpg">
+              <img src="images/products-wall.jpg" alt="Product wall and retail display" loading="lazy" />
+              <figcaption class="label">Product Wall</figcaption>
+            </figure>
+
+            <figure class="photo small" data-full="images/salon-floor.jpg">
+              <img src="images/salon-floor.jpg" alt="Salon floor and styling stations" loading="lazy" />
+              <figcaption class="label">Salon Floor</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="wrap">
+  <main class="container">
     <!-- SERVICES -->
-    <section id="services">
+    <section class="section" id="services">
       <div class="section-head">
         <div>
           <h2>Services</h2>
-          <p>Precision cuts, dimensional color, and healthy hair care.</p>
+          <p>Clean shapes, dimensional color, and healthy hair care.</p>
         </div>
         <a class="btn" href="tel:+15038302682">Schedule</a>
       </div>
@@ -677,7 +486,7 @@
         <div class="card service">
           <div class="icon">✂︎</div>
           <h3>Haircuts</h3>
-          <p>Clean shapes, movement, and styling that lasts between visits.</p>
+          <p>Modern, wearable cuts with movement and a polished finish.</p>
         </div>
         <div class="card service">
           <div class="icon">🎨</div>
@@ -687,7 +496,7 @@
         <div class="card service">
           <div class="icon">✨</div>
           <h3>Treatments</h3>
-          <p>Repair + hydration options to keep hair shiny, strong, and healthy.</p>
+          <p>Hydration + repair options to keep hair shiny, strong, and healthy.</p>
         </div>
 
         <div class="card service">
@@ -703,44 +512,48 @@
         <div class="card service">
           <div class="icon">🌿</div>
           <h3>Atmosphere</h3>
-          <p>Modern vintage feel—greens, clean lines, and a calm experience.</p>
+          <p>Bright, calm, plant-forward space with vintage character.</p>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE / WORK -->
-    <section id="work">
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
       <div class="section-head">
         <div>
-          <h2>Signature Look</h2>
-          <p>Clean editorial energy—soft texture, intentional detail.</p>
+          <h2>Gallery</h2>
+          <p>Tap any photo to enlarge.</p>
         </div>
-        <a class="btn ghost" href="#contact">Ask for a consult</a>
       </div>
 
-      <div class="card feature">
-        <div class="feature-media" data-full="images/model.jpg" aria-label="NVBL window photo"></div>
-        <div class="feature-copy">
-          <h3>Polished. Wearable. Personal.</h3>
-          <p>
-            Whether you want a subtle refresh or a bold transformation, NVBL focuses on shape, tone,
-            and long-term wear—so your hair looks great in real life, not just day one.
-          </p>
-          <div class="feature-points">
-            <div class="point"><span class="dot"></span><div><b>Consult-first approach</b><br><span style="color:var(--muted); font-size:13px;">Clear plan, realistic upkeep, no surprises.</span></div></div>
-            <div class="point"><span class="dot"></span><div><b>Color that photographs beautifully</b><br><span style="color:var(--muted); font-size:13px;">Dimension + shine, balanced tone.</span></div></div>
-            <div class="point"><span class="dot"></span><div><b>Calm, curated space</b><br><span style="color:var(--muted); font-size:13px;">Plants + warm details, clean styling.</span></div></div>
+      <div class="card gallery">
+        <div class="gallery-grid">
+          <div class="g g1" data-full="images/lobby.jpg">
+            <img src="images/lobby.jpg" alt="Lobby and plant wall" loading="lazy" />
+            <span>Lobby</span>
           </div>
-          <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="tel:+15038302682">Call to Book</a>
-            <a class="btn" href="https://nvbl.co" target="_blank" rel="noopener">Explore nvbl.co</a>
+          <div class="g g2" data-full="images/products-wall.jpg">
+            <img src="images/products-wall.jpg" alt="Product wall display" loading="lazy" />
+            <span>Products</span>
+          </div>
+          <div class="g g3" data-full="images/salon-floor.jpg">
+            <img src="images/salon-floor.jpg" alt="Salon interior" loading="lazy" />
+            <span>Interior</span>
+          </div>
+          <div class="g g4" data-full="images/hair-color.jpg">
+            <img src="images/hair-color.jpg" alt="Hair color work example" loading="lazy" />
+            <span>Color Work</span>
+          </div>
+          <div class="g g5" data-full="images/model.jpg">
+            <img src="images/model.jpg" alt="Editorial style photo outside NVBL" loading="lazy" />
+            <span>Signature Mood</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- REVIEWS -->
-    <section id="reviews">
+    <section class="section" id="reviews">
       <div class="section-head">
         <div>
           <h2>Reviews</h2>
@@ -776,7 +589,7 @@
     </section>
 
     <!-- HOURS + CONTACT -->
-    <section id="hours">
+    <section class="section" id="hours">
       <div class="section-head">
         <div>
           <h2>Hours</h2>
@@ -800,7 +613,7 @@
         <div class="card contact" id="contact">
           <div class="section-head" style="margin-bottom:10px;">
             <div>
-              <h2 style="font-size:26px;">Contact & Directions</h2>
+              <h2 style="font-size:28px;">Contact & Directions</h2>
               <p>Located in Tupelo Alley.</p>
             </div>
             <a class="btn primary" href="tel:+15038302682">Call to Book</a>
@@ -808,15 +621,15 @@
 
           <div class="contact-grid">
             <div class="contact-box">
-              <div class="label">Address</div>
+              <div class="label2">Address</div>
               <div class="value" id="addressText">3864 N Mississippi Ave<br/>Portland, OR 97227</div>
               <a class="btn" style="margin-top:auto;" href="https://www.google.com/maps?q=3864+N+Mississippi+Ave,+Portland,+OR+97227" target="_blank" rel="noopener">Open in Maps</a>
             </div>
 
             <div class="contact-box">
-              <div class="label">Phone</div>
+              <div class="label2">Phone</div>
               <div class="value"><a href="tel:+15038302682">(503) 830-2682</a></div>
-              <div class="label">Products & Services</div>
+              <div class="label2">Products & Services</div>
               <div class="value"><a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a></div>
               <button class="btn ghost" style="margin-top:auto;" id="copyPhoneBtn" type="button">Copy Phone</button>
             </div>
@@ -831,19 +644,19 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div>© <span id="year"></span> New Vintage Beauty Lounge • Portland, OR</div>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#top">Back to top</a>
-        <span style="opacity:.6;">•</span>
-        <a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
-        <span style="opacity:.6;">•</span>
-        <a href="tel:+15038302682">(503) 830-2682</a>
-      </div>
-    </footer>
-  </div>
+      <footer>
+        <div>© <span id="year"></span> New Vintage Beauty Lounge • Portland, OR</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#top">Back to top</a>
+          <span style="opacity:.6;">•</span>
+          <a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
+          <span style="opacity:.6;">•</span>
+          <a href="tel:+15038302682">(503) 830-2682</a>
+        </div>
+      </footer>
+    </section>
+  </main>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -857,11 +670,5 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
-
-  <!-- Tiny inline helper if you don’t want to edit script.js -->
-  <script>
-    // If your existing script.js already handles these, this won't conflict.
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
