@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>New Vintage Beauty Lounge | Portland Hair Salon</title>
-  <meta name="description" content="New Vintage Beauty Lounge (NVBL) — modern salon experience with vintage charm. Hours, services, reviews, photos, and directions." />
+  <meta name="description" content="New Vintage Beauty Lounge (NVBL) — modern salon experience with vintage charm. Services, hours, reviews, and appointment booking." />
 
-  <!-- Squarespace-ish pairing: modern sans + vintage serif -->
+  <!-- Modern + vintage typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,23 +14,26 @@
   <style>
     :root{
       --bg:#ffffff;
-      --text:#0f1214;
-      --muted:#5b6470;
-      --line:rgba(15,18,20,.10);
+      --text:#0e1113;
+      --muted:#5b6570;
+      --line: rgba(14,17,19,.10);
+
+      --card:#ffffff;
       --soft:#f6f7f7;
-      --soft2:#fbfbfb;
 
       --accent:#1f8f5f;
       --accent2:#2bbf7d;
 
-      --shadow: 0 18px 55px rgba(15,18,20,.10);
-      --shadow2: 0 10px 30px rgba(15,18,20,.08);
+      --shadow: 0 18px 55px rgba(14,17,19,.10);
+      --shadow2: 0 10px 30px rgba(14,17,19,.08);
 
-      --radius: 18px;
+      --radius: 20px;
       --max: 1180px;
 
       --serif: "Fraunces", ui-serif, Georgia, serif;
       --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+      --glass: rgba(255,255,255,.72);
     }
 
     *{box-sizing:border-box}
@@ -39,202 +42,323 @@
       margin:0;
       font-family:var(--sans);
       color:var(--text);
-      background:var(--bg);
+      background: var(--bg);
       line-height:1.6;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
+
     .container{max-width:var(--max);margin:0 auto;padding:0 20px}
-    .section{padding:64px 0}
+    .section{padding: 86px 0}
+    .thin{padding: 70px 0}
 
     /* NAV */
     .nav{
-      position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,.86);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
       transition: box-shadow .2s ease;
     }
-    .nav.scrolled{box-shadow: 0 14px 40px rgba(15,18,20,.08)}
+    .nav.scrolled{box-shadow: 0 14px 40px rgba(14,17,19,.08);}
     .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 0;
     }
     .brand{
-      display:flex; align-items:center; gap:12px; min-width:260px;
+      display:flex;align-items:center;gap:12px;
+      min-width: 260px;
     }
     .mark{
-      width:40px;height:40px;border-radius:14px;
+      width: 40px;height: 40px;border-radius: 14px;
       background:
-        radial-gradient(16px 16px at 30% 30%, rgba(43,191,125,.95), transparent 60%),
+        radial-gradient(18px 18px at 30% 30%, rgba(43,191,125,.95), transparent 60%),
         radial-gradient(18px 18px at 75% 75%, rgba(31,143,95,.85), transparent 62%),
-        linear-gradient(135deg, rgba(15,18,20,.10), rgba(15,18,20,.03));
-      border:1px solid rgba(15,18,20,.12);
+        linear-gradient(135deg, rgba(14,17,19,.11), rgba(14,17,19,.03));
+      border: 1px solid rgba(14,17,19,.12);
     }
     .brand-title{display:flex;flex-direction:column;line-height:1.1}
-    .brand-title b{font-family:var(--serif);font-weight:650;font-size:15px;letter-spacing:.2px}
-    .brand-title span{font-size:12px;color:var(--muted);margin-top:3px}
+    .brand-title b{
+      font-family: var(--serif);
+      font-weight: 650;
+      font-size: 15px;
+      letter-spacing: .2px;
+    }
+    .brand-title span{font-size: 12px;color: var(--muted);margin-top:3px}
 
-    .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .links{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
     .links a{
-      font-size:13px;color:var(--muted);
-      padding:9px 12px;border-radius:999px;border:1px solid transparent;
-      transition: background .15s ease,border-color .15s ease,color .15s ease;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
     }
-    .links a:hover{background:rgba(31,143,95,.07);border-color:rgba(31,143,95,.18);color:var(--text)}
-    .links a.active{background:rgba(31,143,95,.10);border-color:rgba(31,143,95,.22);color:var(--text)}
+    .links a:hover{
+      background: rgba(31,143,95,.07);
+      border-color: rgba(31,143,95,.18);
+      color: var(--text);
+    }
+    .links a.active{
+      background: rgba(31,143,95,.10);
+      border-color: rgba(31,143,95,.22);
+      color: var(--text);
+    }
 
-    .cta{display:flex;gap:10px;align-items:center}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:10px 14px;border-radius:12px;
-      border:1px solid rgba(15,18,20,.12);
-      background:rgba(255,255,255,.92);
-      font-weight:650;font-size:13px;cursor:pointer;white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(14,17,19,.12);
+      background: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+      cursor:pointer;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      white-space:nowrap;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow2);background:#fff}
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2); background:#fff;}
     .btn.primary{
-      border-color:rgba(31,143,95,.25);
-      background:linear-gradient(135deg, rgba(31,143,95,.14), rgba(43,191,125,.10));
+      border-color: rgba(31,143,95,.25);
+      background: linear-gradient(135deg, rgba(31,143,95,.14), rgba(43,191,125,.10));
     }
-    .btn.ghost{background:transparent;border-color:rgba(15,18,20,.14);color:var(--muted)}
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(14,17,19,.14);
+      color: var(--muted);
+    }
 
-    /* HERO (Squarespace-like: clean split + big photo) */
+    /* HERO - full, modern, photo atmosphere */
     .hero{
-      background:
-        radial-gradient(1100px 560px at 15% 0%, rgba(43,191,125,.10), transparent 65%),
-        linear-gradient(180deg, var(--soft2), #fff);
-      border-bottom:1px solid rgba(15,18,20,.06);
-      padding: 36px 0 28px;
+      position:relative;
+      padding: 54px 0 44px;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(14,17,19,.06);
+      background: #fff;
     }
+    .hero:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.92)),
+        url("images/lobby.png") center/cover no-repeat;
+      filter: saturate(1.05);
+      transform: scale(1.03);
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(43,191,125,.18), transparent 60%),
+        radial-gradient(800px 500px at 90% 30%, rgba(14,17,19,.10), transparent 62%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; z-index:2;}
     .hero-grid{
-      display:grid; grid-template-columns: 1.05fr .95fr; gap:18px; align-items:stretch;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items:stretch;
     }
     .hero-card{
-      background:#fff;border:1px solid rgba(15,18,20,.08);
-      border-radius:22px;box-shadow:var(--shadow);
-      padding:34px 28px; align-self:start;
+      background: var(--glass);
+      border: 1px solid rgba(14,17,19,.10);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 34px 28px;
+      backdrop-filter: blur(14px);
     }
+
     .kicker{
       display:flex;flex-wrap:wrap;gap:10px;align-items:center;
-      font-size:12px;color:var(--muted);letter-spacing:.2px;
+      font-size:12px;color: var(--muted);
+      letter-spacing:.2px;
     }
     .pill{
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(15,18,20,.10);
-      background:rgba(15,18,20,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(14,17,19,.12);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
     }
-    .pill.green{border-color:rgba(31,143,95,.22);background:rgba(31,143,95,.08);color:#0b2a1c}
+    .pill.green{
+      border-color: rgba(31,143,95,.22);
+      background: rgba(31,143,95,.10);
+      color: #0b2a1c;
+    }
 
     h1{
-      margin:14px 0 10px;
-      font-family:var(--serif);
-      font-weight:650;
-      font-size:48px; line-height:1.06;
-      letter-spacing:-0.7px;
+      margin: 14px 0 10px;
+      font-family: var(--serif);
+      font-weight: 650;
+      font-size: 52px;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
     }
-    .sub{margin:0 0 18px;color:var(--muted);font-size:15.5px;max-width:64ch}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15.5px;
+      max-width: 66ch;
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top: 10px;}
 
     .facts{
-      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;margin-top:22px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 22px;
     }
     .fact{
-      border:1px solid rgba(15,18,20,.08);
-      border-radius:16px;padding:12px 12px 10px;background:var(--soft);
+      border: 1px solid rgba(14,17,19,.10);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(10px);
     }
-    .fact b{display:block;font-size:13.5px}
-    .fact span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+    .fact b{display:block;font-size:13.5px;}
+    .fact span{display:block;color:var(--muted);font-size:12px;margin-top:4px;}
 
-    /* Hero Photo Stack (real images, reliable) */
-    .photo-stack{
+    /* Hero media - clean stack */
+    .hero-media{
       display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
+      grid-template-rows: 1fr auto;
+      gap: 10px;
     }
-    .photo{
-      border-radius:22px;
+    .frame{
+      border-radius: 26px;
       overflow:hidden;
-      border:1px solid rgba(15,18,20,.10);
-      box-shadow:var(--shadow2);
+      border: 1px solid rgba(14,17,19,.10);
+      box-shadow: var(--shadow2);
       background: #e9ecef;
       position:relative;
     }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .photo.big{aspect-ratio: 4 / 3;}
-    .photo-row{
+    .frame img{width:100%;height:100%;object-fit:cover;}
+    .frame.big{aspect-ratio: 4 / 3;}
+    .row{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:10px;
+      gap: 10px;
     }
-    .photo.small{aspect-ratio: 4 / 3;}
-    .label{
-      position:absolute; left:12px; bottom:12px;
-      color:#fff; font-size:12.5px; font-weight:650;
+    .frame.small{aspect-ratio: 4 / 3;}
+    .tag{
+      position:absolute;left:12px;bottom:12px;
+      color:#fff;font-size:12.5px;font-weight:750;
       padding:6px 10px;border-radius:999px;
       border:1px solid rgba(255,255,255,.55);
       background:rgba(0,0,0,.22);
       backdrop-filter: blur(8px);
     }
 
-    /* HEADINGS */
+    /* SECTION HEAD */
     .section-head{
-      display:flex;justify-content:space-between;align-items:flex-end;gap:14px;
-      margin-bottom:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 14px;
+      margin-bottom: 18px;
     }
     .section-head h2{
-      margin:0;font-family:var(--serif);
-      font-size:30px;letter-spacing:-0.2px;
+      margin:0;
+      font-family: var(--serif);
+      font-size: 32px;
+      letter-spacing: -0.2px;
     }
-    .section-head p{margin:0;color:var(--muted);font-size:14px}
+    .section-head p{margin:0;color:var(--muted);font-size:14px;}
 
-    /* Cards + grids */
-    .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+    /* Grids / cards */
+    .grid{display:grid;grid-template-columns: repeat(12, minmax(0,1fr)); gap: 14px;}
     .card{
-      background:#fff;border:1px solid rgba(15,18,20,.10);
-      border-radius:18px;box-shadow:var(--shadow2);
-      padding:18px;
+      background: var(--card);
+      border: 1px solid rgba(14,17,19,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 18px;
     }
 
     /* Services */
     .service{grid-column: span 4;}
     .icon{
-      width:44px;height:44px;border-radius:16px;
-      display:grid;place-items:center;
-      background:rgba(31,143,95,.10);
-      border:1px solid rgba(31,143,95,.18);
-      color:#0b2a1c;font-weight:900;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(31,143,95,.10);
+      border: 1px solid rgba(31,143,95,.18);
+      color: #0b2a1c;
+      font-weight: 900;
+      font-size: 18px;
     }
-    .service h3{margin:12px 0 8px;font-size:15px}
-    .service p{margin:0;color:var(--muted);font-size:14px}
+    .service h3{margin:12px 0 8px;font-size:15px;}
+    .service p{margin:0;color:var(--muted);font-size:14px;}
 
-    /* Gallery (Squarespace-like mosaic) */
-    .gallery{grid-column: span 12; padding:0; overflow:hidden}
+    /* Modern background bands (photo atmosphere) */
+    .band{
+      position:relative;
+      overflow:hidden;
+      border-top:1px solid rgba(14,17,19,.06);
+      border-bottom:1px solid rgba(14,17,19,.06);
+      background: #fff;
+    }
+    .band:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.96)),
+        url("images/salon-chairs.png") center/cover no-repeat;
+      filter: saturate(1.05);
+      transform: scale(1.04);
+      opacity: .95;
+    }
+    .band > .container{position:relative; z-index:2;}
+
+    /* Gallery */
+    .gallery{
+      grid-column: span 12;
+      padding: 0;
+      overflow:hidden;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(12px);
+    }
     .gallery-grid{
-      display:grid; grid-template-columns: repeat(12, 1fr);
-      gap:10px; padding:16px; background:var(--soft);
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      padding: 16px;
+      background: rgba(246,247,247,.70);
     }
     .g{
-      border-radius:18px; overflow:hidden; position:relative;
-      border:1px solid rgba(15,18,20,.10);
+      border-radius: 18px;
+      overflow:hidden;
+      position:relative;
+      border: 1px solid rgba(14,17,19,.10);
       background:#e9ecef;
       cursor:pointer;
       box-shadow: var(--shadow2);
       transition: transform .16s ease, box-shadow .16s ease;
     }
-    .g:hover{transform:translateY(-2px); box-shadow: var(--shadow);}
+    .g:hover{transform: translateY(-2px); box-shadow: var(--shadow);}
     .g img{width:100%;height:100%;object-fit:cover}
     .g span{
-      position:absolute;left:12px;bottom:12px;
-      color:#fff;font-size:12.5px;font-weight:650;
-      padding:6px 10px;border-radius:999px;
+      position:absolute; left:12px; bottom:12px;
+      color:#fff; font-size:12.5px; font-weight:750;
+      padding:6px 10px; border-radius:999px;
       border:1px solid rgba(255,255,255,.55);
       background:rgba(0,0,0,.22);
       backdrop-filter: blur(8px);
@@ -246,58 +370,165 @@
     .g5{grid-column: span 12; aspect-ratio: 16/7;}
 
     /* Reviews */
+    .reviews-wrap{
+      position:relative;
+      overflow:hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(14,17,19,.08);
+      box-shadow: var(--shadow);
+      background:#fff;
+    }
+    .reviews-wrap:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.76)),
+        url("images/model.png") center/cover no-repeat;
+      opacity: .95;
+    }
+    .reviews-inner{position:relative; z-index:2; padding: 22px;}
     .review{grid-column: span 4;}
-    .review .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+    .review .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
     .review b{font-size:13.5px}
-    .review p{margin:10px 0 0;color:var(--muted);font-size:14px}
+    .review p{margin:10px 0 0;color:var(--muted);font-size:14px;}
     .source{
       font-size:12px;color:var(--muted);
       padding:5px 8px;border-radius:999px;
-      border:1px solid rgba(15,18,20,.10);
-      background:rgba(15,18,20,.03);
+      border:1px solid rgba(14,17,19,.10);
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(10px);
       white-space:nowrap;
     }
 
-    /* Hours + contact */
+    /* Booking */
+    .booking{
+      grid-column: span 12;
+      padding: 0;
+      overflow:hidden;
+      position:relative;
+    }
+    .booking:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.94)),
+        url("images/hair-color.png") center/cover no-repeat;
+      transform: scale(1.04);
+      filter: saturate(1.05);
+    }
+    .booking-inner{
+      position:relative; z-index:2;
+      padding: 22px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .booking-copy{
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(14,17,19,.10);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .booking-copy h3{
+      margin:0 0 8px;
+      font-family: var(--serif);
+      font-size: 26px;
+      letter-spacing: -0.2px;
+    }
+    .booking-copy p{margin:0;color:var(--muted);font-size:14.5px;}
+
+    form{
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(14,17,19,.10);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow2);
+    }
+    .fields{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .field{display:flex;flex-direction:column;gap:6px;}
+    label{font-size:12px;color:var(--muted);font-weight:700;}
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(14,17,19,.14);
+      background: rgba(255,255,255,.92);
+      font-family: var(--sans);
+      font-size: 14px;
+      outline:none;
+      transition: box-shadow .15s ease, border-color .15s ease;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(31,143,95,.35);
+      box-shadow: 0 0 0 4px rgba(31,143,95,.12);
+    }
+    textarea{min-height: 96px; resize: vertical; grid-column: 1 / -1;}
+    .form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top: 12px;}
+    .hint{margin-top:10px;color:var(--muted);font-size:12.5px;}
+
+    /* Hours + Contact */
     .hours{grid-column: span 5;}
     .contact{grid-column: span 7;}
+
     table{
       width:100%;
       border-collapse:separate;border-spacing:0;
       border-radius:14px;overflow:hidden;
-      border:1px solid rgba(15,18,20,.10);
+      border:1px solid rgba(14,17,19,.10);
       background:#fff;
     }
     td{
       padding:11px 12px;
-      border-bottom:1px solid rgba(15,18,20,.08);
+      border-bottom:1px solid rgba(14,17,19,.08);
       font-size:14px;color:var(--muted);
     }
     tr:last-child td{border-bottom:none}
-    td:first-child{color:var(--text);font-weight:700}
+    td:first-child{color:var(--text);font-weight:800}
 
     .contact-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;
+      display:grid;grid-template-columns: 1fr 1fr;
+      gap:12px;margin-top:12px;
     }
     .contact-box{
-      border:1px solid rgba(15,18,20,.10);
-      border-radius:16px;background:var(--soft);
-      padding:14px;display:flex;flex-direction:column;gap:6px;min-height:110px;
+      border:1px solid rgba(14,17,19,.10);
+      border-radius:16px;
+      background: var(--soft);
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-height:110px;
     }
-    .contact-box .label2{color:var(--muted);font-size:12px}
-    .contact-box .value{font-weight:800}
-    .contact-box .value a:hover{color:var(--accent)}
+    .label2{color:var(--muted);font-size:12px;font-weight:700}
+    .value{font-weight:900}
+    .value a:hover{color: var(--accent)}
     .map{
-      margin-top:12px;border-radius:16px;overflow:hidden;
-      border:1px solid rgba(15,18,20,.10);
-      height:300px;background:#fff;
+      margin-top:12px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(14,17,19,.10);
+      height: 300px;
+      background:#fff;
     }
     iframe{width:100%;height:100%;border:0}
 
     /* Footer */
     footer{
-      margin-top:40px;padding-top:18px;border-top:1px solid rgba(15,18,20,.10);
-      color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      margin-top:40px;
+      padding-top:18px;
+      border-top:1px solid rgba(14,17,19,.10);
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
       font-size:13px;
     }
 
@@ -311,30 +542,31 @@
     .lightbox-inner{
       max-width:min(980px,96vw);
       max-height:min(82vh,740px);
-      border-radius:16px; overflow:hidden;
+      border-radius:16px;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.18);
       background:#000;
       box-shadow: 0 26px 90px rgba(0,0,0,.50);
       position:relative;
     }
-    .lightbox-inner img{width:100%;height:100%;object-fit:contain;display:block}
+    .lightbox-inner img{width:100%;height:100%;object-fit:contain;display:block;}
     .lightbox-close{
       position:absolute; right:12px; top:12px;
       border:1px solid rgba(255,255,255,.22);
       background: rgba(0,0,0,.35);
       color:#fff;border-radius:12px;
-      padding:10px 12px; cursor:pointer; font-weight:800;
+      padding:10px 12px; cursor:pointer; font-weight:900;
     }
 
     /* Toast */
     .toast{
       position:fixed; left:50%; bottom:22px; transform:translateX(-50%);
       background: rgba(255,255,255,.94);
-      border: 1px solid rgba(15,18,20,.14);
+      border: 1px solid rgba(14,17,19,.14);
       color: var(--text);
       padding: 10px 12px;
       border-radius: 12px;
-      box-shadow: 0 16px 50px rgba(15,18,20,.12);
+      box-shadow: 0 16px 50px rgba(14,17,19,.12);
       display:none; z-index: 1000;
       font-size: 13px;
       max-width: min(520px, 92vw);
@@ -346,19 +578,21 @@
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .facts{grid-template-columns:1fr}
-      .photo-row{grid-template-columns:1fr}
-      .service{grid-column:span 6}
-      .review{grid-column:span 6}
-      .hours,.contact{grid-column:span 12}
+      .row{grid-template-columns:1fr}
+      .service{grid-column: span 6}
+      .review{grid-column: span 6}
+      .hours,.contact{grid-column: span 12}
+      .booking-inner{grid-template-columns:1fr}
       .g1,.g2,.g3,.g4{grid-column: span 12;}
     }
     @media (max-width: 560px){
-      h1{font-size:38px}
+      h1{font-size:40px}
       .links{display:none}
       .brand{min-width:auto}
-      .service{grid-column:span 12}
-      .review{grid-column:span 12}
+      .service{grid-column: span 12}
+      .review{grid-column: span 12}
       .contact-grid{grid-template-columns:1fr}
+      .fields{grid-template-columns:1fr}
       .g5{aspect-ratio: 16/10;}
     }
   </style>
@@ -379,11 +613,6 @@
     },
     "telephone":"+15038302682",
     "areaServed":"Portland, OR",
-    "aggregateRating":{
-      "@type":"AggregateRating",
-      "ratingValue":"4.6",
-      "reviewCount":"195"
-    },
     "url":"https://nvbl.co"
   }
   </script>
@@ -398,21 +627,21 @@
           <div class="mark" aria-hidden="true"></div>
           <div class="brand-title">
             <b>New Vintage Beauty Lounge</b>
-            <span>Modern finish • vintage charm • green vibe</span>
+            <span>Modern finish • vintage charm • plant-forward</span>
           </div>
         </a>
 
         <nav class="links" aria-label="Primary">
           <a href="#services">Services</a>
           <a href="#gallery">Gallery</a>
-          <a href="#reviews">Reviews</a>
+          <a href="#book">Book</a>
           <a href="#hours">Hours</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="cta">
+        <div style="display:flex; gap:10px; align-items:center;">
           <a class="btn ghost" href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
-          <a class="btn primary" href="tel:+15038302682">Call (503) 830-2682</a>
+          <a class="btn primary" href="#book">Book Appointment</a>
         </div>
       </div>
     </div>
@@ -420,24 +649,24 @@
 
   <!-- HERO -->
   <header class="hero" id="top">
-    <div class="container">
+    <div class="container hero-inner">
       <div class="hero-grid">
         <div class="hero-card">
           <div class="kicker">
             <span class="pill green">4.6 ★ rating</span>
             <span class="pill">Located in: Tupelo Alley</span>
-            <span class="pill">3864 N Mississippi Ave</span>
+            <span class="pill">Portland, OR</span>
           </div>
 
-          <h1>Modern hair, vintage soul.</h1>
+          <h1>Modern hair,<br/>vintage soul.</h1>
           <p class="sub">
-            NVBL is a bright, clean salon experience with vintage character and a plant-forward atmosphere.
-            Cuts, color, and care that look great beyond the chair.
+            A bright, clean salon experience with vintage character and lush green atmosphere.
+            Cuts, color, and care — with a calm, elevated feel.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="#contact">Get Directions</a>
-            <a class="btn" href="tel:+15038302682">Book by Phone</a>
+            <a class="btn primary" href="#book">Book Appointment</a>
+            <a class="btn" href="tel:+15038302682">Call (503) 830-2682</a>
             <button class="btn ghost" id="copyAddressBtn" type="button">Copy Address</button>
           </div>
 
@@ -448,22 +677,20 @@
           </div>
         </div>
 
-        <!-- Photos: real <img> paths + JS fallback if missing -->
-        <div class="photo-stack" aria-label="Featured photos">
-          <figure class="photo big" data-full="images/lobby.jpg">
-            <img src="images/lobby.jpg" alt="Lobby with plant wall and seating" loading="lazy" />
-            <figcaption class="label">Lobby + Plant Wall</figcaption>
+        <div class="hero-media" aria-label="Featured photos">
+          <figure class="frame big g" data-full="images/salon-floor.png">
+            <img src="images/salon-floor.png" alt="Salon interior and styling stations" loading="lazy" />
+            <figcaption class="tag">Inside NVBL</figcaption>
           </figure>
 
-          <div class="photo-row">
-            <figure class="photo small" data-full="images/products-wall.jpg">
-              <img src="images/products-wall.jpg" alt="Product wall and retail display" loading="lazy" />
-              <figcaption class="label">Product Wall</figcaption>
+          <div class="row">
+            <figure class="frame small g" data-full="images/lobby.png">
+              <img src="images/lobby.png" alt="Lobby with plant wall and seating" loading="lazy" />
+              <figcaption class="tag">Lobby</figcaption>
             </figure>
-
-            <figure class="photo small" data-full="images/salon-floor.jpg">
-              <img src="images/salon-floor.jpg" alt="Salon floor and styling stations" loading="lazy" />
-              <figcaption class="label">Salon Floor</figcaption>
+            <figure class="frame small g" data-full="images/salon-chairs.png">
+              <img src="images/salon-chairs.png" alt="Salon chairs and atmosphere" loading="lazy" />
+              <figcaption class="tag">Atmosphere</figcaption>
             </figure>
           </div>
         </div>
@@ -471,15 +698,15 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- SERVICES -->
-    <section class="section" id="services">
+  <!-- SERVICES (with photo band background) -->
+  <section class="section band" id="services">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Services</h2>
           <p>Clean shapes, dimensional color, and healthy hair care.</p>
         </div>
-        <a class="btn" href="tel:+15038302682">Schedule</a>
+        <a class="btn" href="#book">Book now</a>
       </div>
 
       <div class="grid">
@@ -498,7 +725,6 @@
           <h3>Treatments</h3>
           <p>Hydration + repair options to keep hair shiny, strong, and healthy.</p>
         </div>
-
         <div class="card service">
           <div class="icon">🛍</div>
           <h3>Products</h3>
@@ -507,18 +733,20 @@
         <div class="card service">
           <div class="icon">💬</div>
           <h3>Consultations</h3>
-          <p>Clear expectations and a plan that fits your hair goals and upkeep.</p>
+          <p>Clear expectations + a plan that fits your hair goals and upkeep.</p>
         </div>
         <div class="card service">
           <div class="icon">🌿</div>
-          <h3>Atmosphere</h3>
+          <h3>Experience</h3>
           <p>Bright, calm, plant-forward space with vintage character.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- GALLERY -->
-    <section class="section" id="gallery">
+  <!-- GALLERY -->
+  <section class="section thin" id="gallery">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Gallery</h2>
@@ -528,68 +756,157 @@
 
       <div class="card gallery">
         <div class="gallery-grid">
-          <div class="g g1" data-full="images/lobby.jpg">
-            <img src="images/lobby.jpg" alt="Lobby and plant wall" loading="lazy" />
+          <div class="g g1" data-full="images/lobby.png">
+            <img src="images/lobby.png" alt="Lobby and plant wall" loading="lazy" />
             <span>Lobby</span>
           </div>
-          <div class="g g2" data-full="images/products-wall.jpg">
-            <img src="images/products-wall.jpg" alt="Product wall display" loading="lazy" />
-            <span>Products</span>
-          </div>
-          <div class="g g3" data-full="images/salon-floor.jpg">
-            <img src="images/salon-floor.jpg" alt="Salon interior" loading="lazy" />
+          <div class="g g2" data-full="images/salon-floor.png">
+            <img src="images/salon-floor.png" alt="Salon floor and stations" loading="lazy" />
             <span>Interior</span>
           </div>
-          <div class="g g4" data-full="images/hair-color.jpg">
-            <img src="images/hair-color.jpg" alt="Hair color work example" loading="lazy" />
-            <span>Color Work</span>
+          <div class="g g3" data-full="images/salon-chairs.png">
+            <img src="images/salon-chairs.png" alt="Salon chairs view" loading="lazy" />
+            <span>Chairs</span>
           </div>
-          <div class="g g5" data-full="images/model.jpg">
-            <img src="images/model.jpg" alt="Editorial style photo outside NVBL" loading="lazy" />
+          <div class="g g4" data-full="images/hair-color.png">
+            <img src="images/hair-color.png" alt="Hair color example" loading="lazy" />
+            <span>Color</span>
+          </div>
+          <div class="g g5" data-full="images/model.png">
+            <img src="images/model.png" alt="NVBL mood / storefront photo" loading="lazy" />
             <span>Signature Mood</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- REVIEWS -->
-    <section class="section" id="reviews">
+  <!-- BOOKING -->
+  <section class="section thin" id="book">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Book an Appointment</h2>
+          <p>Send a request — we’ll confirm by phone or email.</p>
+        </div>
+        <a class="btn ghost" href="tel:+15038302682">Or call (503) 830-2682</a>
+      </div>
+
+      <div class="card booking">
+        <div class="booking-inner">
+          <div class="booking-copy">
+            <h3>Fast booking, clean experience.</h3>
+            <p>
+              Fill out the form with your preferred day/time and service. Your request will generate a pre-filled message
+              you can send immediately (plus we keep it saved locally so you don’t lose it).
+            </p>
+            <p style="margin-top:10px; color:var(--muted); font-size:13.5px;">
+              Prefer online? Visit <b><a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a></b> for products & services.
+            </p>
+          </div>
+
+          <form id="bookingForm">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="field">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option>Haircut</option>
+                  <option>Color</option>
+                  <option>Highlights / Blonding</option>
+                  <option>Toner / Gloss</option>
+                  <option>Treatment</option>
+                  <option>Consultation</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date" />
+              </div>
+              <div class="field">
+                <label for="time">Preferred time</label>
+                <input id="time" name="time" type="time" />
+              </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
+                <label for="notes">Notes (optional)</label>
+                <textarea id="notes" name="notes" placeholder="Anything we should know? (Hair goals, inspiration, timing, etc.)"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Send Booking Request</button>
+              <button class="btn" id="saveDraftBtn" type="button">Save Draft</button>
+              <button class="btn ghost" id="clearDraftBtn" type="button">Clear</button>
+            </div>
+            <div class="hint">
+              Submitting will open your email app with a pre-filled request. If you prefer, call <b>(503) 830-2682</b>.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section thin" id="reviews">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Reviews</h2>
-          <p>A few highlights from clients.</p>
+          <p>Highlights from clients.</p>
         </div>
       </div>
 
-      <div class="grid">
-        <div class="card review">
-          <div class="top">
-            <b>“Consistently gives me the exact cuts I want.”</b>
-            <span class="source">Google</span>
-          </div>
-          <p>“Every time I sit in his chair… I can always count on him to do an amazing job.”</p>
-        </div>
+      <div class="reviews-wrap">
+        <div class="reviews-inner">
+          <div class="grid">
+            <div class="card review">
+              <div class="top">
+                <b>“Consistently gives me the exact cuts I want.”</b>
+                <span class="source">Google</span>
+              </div>
+              <p>“Every time I sit in his chair… I can always count on him to do an amazing job.”</p>
+            </div>
 
-        <div class="card review">
-          <div class="top">
-            <b>“Front desk folks are super nice.”</b>
-            <span class="source">Google</span>
-          </div>
-          <p>“I’ve been coming here for years… all the stylists I’ve had do a great job.”</p>
-        </div>
+            <div class="card review">
+              <div class="top">
+                <b>“Front desk folks are super nice.”</b>
+                <span class="source">Google</span>
+              </div>
+              <p>“I’ve been coming here for years… all the stylists I’ve had do a great job.”</p>
+            </div>
 
-        <div class="card review">
-          <div class="top">
-            <b>“Exactly what I wanted.”</b>
-            <span class="source">Google</span>
+            <div class="card review">
+              <div class="top">
+                <b>“Exactly what I wanted.”</b>
+                <span class="source">Google</span>
+              </div>
+              <p>“If you want icy, ashy blondes… so glad I found her.”</p>
+            </div>
           </div>
-          <p>“If you want icy, ashy blondes… so glad I found her.”</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HOURS + CONTACT -->
-    <section class="section" id="hours">
+  <!-- HOURS + CONTACT -->
+  <section class="section thin" id="hours">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Hours</h2>
@@ -642,21 +959,21 @@
               src="https://www.google.com/maps?q=3864%20N%20Mississippi%20Ave%2C%20Portland%2C%20OR%2097227&output=embed">
             </iframe>
           </div>
+
+          <footer>
+            <div>© <span id="year"></span> New Vintage Beauty Lounge • Portland, OR</div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="#top">Back to top</a>
+              <span style="opacity:.6;">•</span>
+              <a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
+              <span style="opacity:.6;">•</span>
+              <a href="tel:+15038302682">(503) 830-2682</a>
+            </div>
+          </footer>
         </div>
       </div>
-
-      <footer>
-        <div>© <span id="year"></span> New Vintage Beauty Lounge • Portland, OR</div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#top">Back to top</a>
-          <span style="opacity:.6;">•</span>
-          <a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
-          <span style="opacity:.6;">•</span>
-          <a href="tel:+15038302682">(503) 830-2682</a>
-        </div>
-      </footer>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
