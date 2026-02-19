@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>New Vintage Beauty Lounge | Hair Salon in Portland, OR</title>
+  <meta name="description" content="New Vintage Beauty Lounge (NVBL) — a top-rated hair salon in North Portland. Located in Tupelo Alley. Book by phone, find hours, services, reviews, and directions." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="New Vintage Beauty Lounge | Portland Hair Salon" />
+  <meta property="og:description" content="Top-rated hair salon in North Portland. Services, reviews, hours, and directions." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#121214;
+      --text:#f4f4f5;
+      --muted:#b7b7bd;
+      --line:rgba(255,255,255,.10);
+      --accent:#d7ff6a;
+      --accent2:#9bdcff;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(155,220,255,.15), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(215,255,106,.12), transparent 55%),
+        linear-gradient(180deg, #060607, #0b0b0c);
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px;}
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,12,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 18px;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(215,255,106,.95), transparent 55%),
+        radial-gradient(18px 18px at 70% 70%, rgba(155,220,255,.85), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .nav-links a:hover{color:var(--text); background: rgba(255,255,255,.05)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn.primary{
+      border-color: rgba(215,255,106,.35);
+      background: linear-gradient(135deg, rgba(215,255,106,.22), rgba(155,220,255,.10));
+    }
+
+    /* Hero */
+    .hero{
+      padding:34px 0 18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height: 360px;
+    }
+    .hero-copy{padding:28px 26px 22px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      color: var(--muted);
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+    .pill{
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:42px;
+      line-height:1.06;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size:16px;
+      max-width: 54ch;
+      margin-bottom:18px;
+    }
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .facts{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
+    }
+    .fact{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding:12px 12px 10px;
+    }
+    .fact b{display:block; font-size:14px}
+    .fact span{display:block; color:var(--muted); font-size:12px; margin-top:3px}
+
+    .hero-media{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-rows: 1fr auto;
+    }
+    .hero-img{
+      position:relative;
+      min-height:260px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.60)),
+        url("https://place.com-photos.com/105323/new-vintage-AF1QipPfNcMfikZN9zifuRaZLcJ3pRcc8_aCaF17G3ZD.jpg") center/cover no-repeat;
+    }
+    .hero-badge{
+      position:absolute; left:16px; bottom:16px;
+      display:flex; gap:10px; align-items:center;
+      padding:10px 12px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(10,10,12,.50);
+      backdrop-filter: blur(8px);
+    }
+    .stars{color: var(--accent); letter-spacing: 1px}
+    .badge-text small{display:block; color:var(--muted); margin-top:2px}
+    .contact-mini{
+      padding:14px 16px;
+      display:grid;
+      gap:10px;
+    }
+    .mini-row{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+      padding:10px 10px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .mini-row .label{color:var(--muted); font-size:12px}
+    .mini-row .value{font-weight:600; font-size:14px; text-align:right}
+    .mini-row a.value{color:var(--text)}
+    .mini-row a.value:hover{color:var(--accent)}
+
+    /* Sections */
+    section{margin-top:32px}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .section-head h2{margin:0; font-size:22px; letter-spacing:-.2px}
+    .section-head p{margin:0; color:var(--muted); font-size:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 34px rgba(0,0,0,.24);
+    }
+
+    /* Services */
+    .service{grid-column: span 4;}
+    .service h3{margin:6px 0 8px; font-size:16px}
+    .service p{margin:0; color:var(--muted); font-size:14px}
+    .icon{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(215,255,106,.18), rgba(155,220,255,.10));
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:800;
+    }
+
+    /* Gallery */
+    .gallery{grid-column: span 12; padding:0; overflow:hidden}
+    .gallery-grid{
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap:10px;
+      padding:16px;
+    }
+    .g{
+      position:relative;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      cursor:pointer;
+      min-height: 190px;
+      background: rgba(255,255,255,.03);
+    }
+    .g:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.55));
+      opacity:.55;
+      transition: opacity .15s ease;
+    }
+    .g:hover:after{opacity:.35}
+    .g span{
+      position:absolute; left:12px; bottom:10px; z-index:2;
+      font-size:13px; color: rgba(255,255,255,.90);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(12,12,14,.45);
+      backdrop-filter: blur(8px);
+    }
+    .g1{grid-column: span 7; background: url("https://place.com-photos.com/105323/new-vintage-AF1QipPfNcMfikZN9zifuRaZLcJ3pRcc8_aCaF17G3ZD.jpg") center/cover}
+    .g2{grid-column: span 5; background: url("https://place.com-photos.com/105323/new-vintage-AF1QipPZ3xJo57MxKYYF8XRtwbujxmX1zD7p8cc0gCQo.jpg") center/cover}
+    .g3{grid-column: span 5; background: url("https://place.com-photos.com/105323/new-vintage-AF1QipPqtRkYMeADj05g6pSnea83KM0LkEEtyuy-KTh_.jpg") center/cover}
+    .g4{grid-column: span 7; background: url("https://place.com-photos.com/105323/new-vintage-AF1QipNEwxjHYasnZDtQA_840s5aoxyIi_eS8fxnb636.jpg") center/cover}
+
+    /* Reviews */
+    .review{grid-column: span 4;}
+    .review .top{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .review b{font-size:14px}
+    .review p{margin:10px 0 0; color:var(--muted); font-size:14px}
+    .source{font-size:12px; color:var(--muted); border:1px solid var(--line); padding:5px 8px; border-radius:999px; background: rgba(255,255,255,.03)}
+
+    /* Hours + Contact */
+    .hours{grid-column: span 5;}
+    .contact{grid-column: span 7;}
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    td{
+      padding:10px 12px;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    tr:last-child td{border-bottom:none}
+    td:first-child{color:var(--text); font-weight:600}
+    .note{margin-top:10px; color:var(--muted); font-size:13px}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .contact-box{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-height: 92px;
+    }
+    .contact-box .label{color:var(--muted); font-size:12px}
+    .contact-box .value{font-weight:700}
+    .map{
+      margin-top:12px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      height: 280px;
+      background: rgba(255,255,255,.03);
+    }
+    iframe{width:100%; height:100%; border:0}
+
+    /* Footer */
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; z-index:999;
+      background: rgba(0,0,0,.78);
+      display:none;
+      place-items:center;
+      padding:18px;
+    }
+    .lightbox.open{display:grid}
+    .lightbox-inner{
+      max-width:min(980px, 96vw);
+      max-height: min(80vh, 720px);
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: #000;
+      box-shadow: 0 30px 90px rgba(0,0,0,.6);
+      position:relative;
+    }
+    .lightbox-inner img{
+      width:100%; height:100%;
+      object-fit:contain;
+      display:block;
+      background:#000;
+    }
+    .lightbox-close{
+      position:absolute; right:12px; top:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(12,12,14,.55);
+      color:#fff;
+      border-radius: 12px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns: 1fr; }
+      .service{grid-column: span 6;}
+      .review{grid-column: span 6;}
+      .hours, .contact{grid-column: span 12;}
+      .g1,.g2,.g3,.g4{grid-column: span 12;}
+    }
+    @media (max-width: 560px){
+      h1{font-size:34px}
+      .facts{grid-template-columns: 1fr;}
+      .service{grid-column: span 12;}
+      .review{grid-column: span 12;}
+      .contact-grid{grid-template-columns: 1fr;}
+      .nav-links{display:none}
+    }
+  </style>
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HairSalon",
+    "name":"New Vintage Beauty Lounge",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"3864 N Mississippi Ave",
+      "addressLocality":"Portland",
+      "addressRegion":"OR",
+      "postalCode":"97227",
+      "addressCountry":"US"
+    },
+    "telephone":"+15038302682",
+    "areaServed":"Portland, OR",
+    "aggregateRating":{
+      "@type":"AggregateRating",
+      "ratingValue":"4.6",
+      "reviewCount":"195"
+    },
+    "url":"https://nvbl.co"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; line-height:1.1;">New Vintage Beauty Lounge</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:2px;">NVBL • North Portland</div>
+        </div>
+      </div>
+
+      <div class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#gallery">Photos</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="https://nvbl.co" target="_blank" rel="noopener">Shop NVBL.co</a>
+        <a class="btn primary" href="tel:+15038302682">Call (503) 830-2682</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <div class="hero" id="top">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <div class="kicker">
+            <span class="pill">Located in: Tupelo Alley</span>
+            <span class="pill">Portland, OR</span>
+          </div>
+
+          <h1>Clean, elevated hair—done by people who really listen.</h1>
+          <p class="sub">
+            New Vintage Beauty Lounge (NVBL) is a top-rated salon on N Mississippi Ave.
+            Come in for expert cuts, color, and transformations—then browse non-toxic essentials at NVBL.co.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Get Directions</a>
+            <a class="btn" href="#reviews">Read Reviews</a>
+            <a class="btn" href="#gallery">View Photos</a>
+          </div>
+
+          <div class="facts" aria-label="Key facts">
+            <div class="fact">
+              <b>4.6 ★ rating</b>
+              <span>Highly reviewed salon</span>
+            </div>
+            <div class="fact">
+              <b>North Portland</b>
+              <span>3864 N Mississippi Ave</span>
+            </div>
+            <div class="fact">
+              <b>Call to book</b>
+              <span>(503) 830-2682</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-img" role="img" aria-label="Salon interior photo">
+          <div class="hero-badge">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <div class="badge-text">
+              <div style="font-weight:800;">4.6 average rating</div>
+              <small>Based on 195 reviews</small>
+            </div>
+          </div>
+        </div>
+        <div class="contact-mini" aria-label="Quick contact">
+          <div class="mini-row">
+            <div>
+              <div class="label">Address</div>
+              <div class="value" style="text-align:left;">3864 N Mississippi Ave<br/>Portland, OR 97227</div>
+            </div>
+            <a class="value" href="#contact" style="align-self:center;">Map →</a>
+          </div>
+          <div class="mini-row">
+            <div>
+              <div class="label">Phone</div>
+              <a class="value" href="tel:+15038302682">(503) 830-2682</a>
+            </div>
+            <a class="value" href="tel:+15038302682" style="align-self:center;">Call →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-head">
+        <div>
+          <h2>Services</h2>
+          <p>Modern cuts, dimensional color, and hair health—tailored to you.</p>
+        </div>
+        <a class="btn" href="tel:+15038302682">Book by phone</a>
+      </div>
+
+      <div class="grid">
+        <div class="card service">
+          <div class="icon">✂︎</div>
+          <h3>Haircuts</h3>
+          <p>Precision cuts and shape-focused styling for your hair type and lifestyle.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">🎨</div>
+          <h3>Color</h3>
+          <p>Highlights, lived-in color, blonding, toning, and custom dimensional work.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">✨</div>
+          <h3>Treatments</h3>
+          <p>Conditioning and repair options to keep hair healthy, strong, and shiny.</p>
+        </div>
+
+        <div class="card service">
+          <div class="icon">🛍</div>
+          <h3>Products</h3>
+          <p>Shop salon-quality, non-toxic beauty essentials online at <b>nvbl.co</b>.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">💬</div>
+          <h3>Consultations</h3>
+          <p>Clear communication + realistic game plan so you leave with exactly what you want.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">📍</div>
+          <h3>Convenient location</h3>
+          <p>Right off N Mississippi Ave—inside Tupelo Alley’s retail area.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="section-head">
+        <div>
+          <h2>Photos</h2>
+          <p>Tap any photo to enlarge.</p>
+        </div>
+        <span style="color:var(--muted); font-size:13px;">
+          Tip: replace images with your Google photos later
+        </span>
+      </div>
+
+      <div class="card gallery">
+        <div class="gallery-grid">
+          <div class="g g1" data-full="https://place.com-photos.com/105323/new-vintage-AF1QipPfNcMfikZN9zifuRaZLcJ3pRcc8_aCaF17G3ZD.jpg"><span>Salon interior</span></div>
+          <div class="g g2" data-full="https://place.com-photos.com/105323/new-vintage-AF1QipPZ3xJo57MxKYYF8XRtwbujxmX1zD7p8cc0gCQo.jpg"><span>Product wall</span></div>
+          <div class="g g3" data-full="https://place.com-photos.com/105323/new-vintage-AF1QipPqtRkYMeADj05g6pSnea83KM0LkEEtyuy-KTh_.jpg"><span>Shop details</span></div>
+          <div class="g g4" data-full="https://place.com-photos.com/105323/new-vintage-AF1QipNEwxjHYasnZDtQA_840s5aoxyIi_eS8fxnb636.jpg"><span>Before / after moment</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <div class="section-head">
+        <div>
+          <h2>Reviews</h2>
+          <p>What clients say (snippets).</p>
+        </div>
+        <a class="btn" href="tel:+15038302682">Call to schedule</a>
+      </div>
+
+      <div class="grid">
+        <div class="card review">
+          <div class="top">
+            <b>“Consistently gives me the exact cuts I want.”</b>
+            <span class="source">Google</span>
+          </div>
+          <p>“Every time I sit in his chair… I can always count on him to do an amazing job.”</p>
+        </div>
+
+        <div class="card review">
+          <div class="top">
+            <b>“The front desk folks are always super nice.”</b>
+            <span class="source">Google</span>
+          </div>
+          <p>“I’ve been coming here for years… all the stylists I have had do a great job.”</p>
+        </div>
+
+        <div class="card review">
+          <div class="top">
+            <b>“If you want icy, ashy blondes…”</b>
+            <span class="source">Google</span>
+          </div>
+          <p>“Exactly what I wanted—so glad I found her.”</p>
+        </div>
+
+        <div class="card review">
+          <div class="top">
+            <b>“Best haircut I’ve ever had.”</b>
+            <span class="source">Google</span>
+          </div>
+          <p>“So personable… already looking forward to my next appointment.”</p>
+        </div>
+
+        <div class="card review">
+          <div class="top">
+            <b>4.6 ★ overall</b>
+            <span class="source">195 reviews</span>
+          </div>
+          <p>Clients consistently mention skilled stylists, a welcoming vibe, and standout results.</p>
+        </div>
+
+        <div class="card review">
+          <div class="top">
+            <b>Want the full list?</b>
+            <span class="source">Tip</span>
+          </div>
+          <p>Link your Google Business Profile reviews page and we can format a complete, scrollable reviews feed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS + CONTACT -->
+    <section id="hours">
+      <div class="section-head">
+        <div>
+          <h2>Hours</h2>
+          <p>Hours can vary by stylist—call to confirm.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card hours">
+          <table aria-label="Hours">
+            <tr><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday</td><td>Closed</td></tr>
+            <tr><td>Wednesday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Thursday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Friday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Saturday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Sunday</td><td>10:00 AM – 7:00 PM</td></tr>
+          </table>
+          <div class="note">
+            If you want, I can adjust this table to match your exact Google listing hours once you paste them (or provide a screenshot).
+          </div>
+        </div>
+
+        <div class="card contact" id="contact">
+          <div class="section-head" style="margin-bottom:10px;">
+            <div>
+              <h2 style="font-size:20px;">Contact & Directions</h2>
+              <p>Stop by Tupelo Alley on N Mississippi Ave.</p>
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-box">
+              <div class="label">Address</div>
+              <div class="value">3864 N Mississippi Ave<br/>Portland, OR 97227</div>
+              <a class="btn" style="margin-top:auto;" href="https://www.google.com/maps?q=3864+N+Mississippi+Ave,+Portland,+OR+97227" target="_blank" rel="noopener">Open in Maps</a>
+            </div>
+
+            <div class="contact-box">
+              <div class="label">Phone</div>
+              <div class="value"><a href="tel:+15038302682">(503) 830-2682</a></div>
+              <div class="label">Products & Services</div>
+              <div class="value"><a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a></div>
+              <a class="btn primary" style="margin-top:auto;" href="tel:+15038302682">Call to Book</a>
+            </div>
+          </div>
+
+          <div class="map" aria-label="Map">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=3864%20N%20Mississippi%20Ave%2C%20Portland%2C%20OR%2097227&output=embed">
+            </iframe>
+          </div>
+
+          <div class="note">
+            Want an appointment button? Add your booking link (Square, Vagaro, Fresha, etc.) and I’ll wire it into the top navigation + hero.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> New Vintage Beauty Lounge • Portland, OR</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="#top">Back to top</a>
+        <span style="opacity:.6;">•</span>
+        <a href="https://nvbl.co" target="_blank" rel="noopener">nvbl.co</a>
+        <span style="opacity:.6;">•</span>
+        <a href="tel:+15038302682">(503) 830-2682</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+      <img id="lbImg" alt="Expanded gallery image" />
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Gallery lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbClose = document.getElementById("lbClose");
+
+    function openLB(src){
+      lbImg.src = src;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+    }
+    function closeLB(){
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden","true");
+      lbImg.src = "";
+    }
+
+    document.querySelectorAll(".g").forEach(el=>{
+      el.addEventListener("click", ()=> openLB(el.dataset.full));
+      el.addEventListener("keypress", (e)=> {
+        if(e.key === "Enter" || e.key === " "){ openLB(el.dataset.full); }
+      });
+      el.setAttribute("tabindex","0");
+      el.setAttribute("role","button");
+      el.setAttribute("aria-label","Open photo");
+    });
+
+    lbClose.addEventListener("click", closeLB);
+    lightbox.addEventListener("click", (e)=> {
+      if(e.target === lightbox) closeLB();
+    });
+    window.addEventListener("keydown", (e)=> {
+      if(e.key === "Escape" && lightbox.classList.contains("open")) closeLB();
+    });
+  </script>
+
+  <!--
+    IMAGE SWAP NOTE:
+    If you download the exact Google Business Profile photos, replace the 4 URLs in:
+      .hero-img background
+      .g1, .g2, .g3, .g4 backgrounds
+    with your local /images/... paths or hosted URLs.
+  -->
+</body>
+</html>
